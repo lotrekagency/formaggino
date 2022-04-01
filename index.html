@@ -9,19 +9,55 @@
 </head>
 
 <body>
+    <style>
+        .form-error {
+            display: none;
+        }
 
+        .form-error.active {
+            display: block;
+        }
+    </style>
+    <form action="http://httpbin.org/post" id="form" novalidate>
 
+        <fieldset>
+            <input type="text" name="name" required>
+            <span class="form-error">errore del nome </span>
+        </fieldset>
+        <fieldset>
+            <input type="text" name="surname" required>
+            <span class="form-error">errore del cognome </span>
+        </fieldset>
 
+        <button type="submit">submit</button>
+    </form>
     <script type="module">
         import Formaggino from "./dist/Formaggino.esm.js"
 
         const formaggino = new Formaggino();
+        const setup = formaggino.setupRequest({
+            method: "GET"
+        })
 
-        console.log(formaggino.setupRequest({
-            body: {
-                name: 'nome'
-            }
-        }))
+
+        // formaggino.get('https://api.jsonbin.it/bins/UB4J7Rln',{name: 'formaggino'}).then(
+        //     response => response.json()
+        // ).then(data => console.log(data))
+
+        // formaggino.post('http://httpbin.org/post', { name: 'formaggino' }).then(
+        //     response => response.json()
+        // ).then(data => console.log(data))
+
+
+        document.querySelector('#form').addEventListener("submit", (e) => {
+            e.preventDefault();
+            const result = formaggino.validate(e.target)
+            console.log(result)
+        })
+
+
+
+
     </script>
 </body>
 

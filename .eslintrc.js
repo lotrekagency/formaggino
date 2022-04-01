@@ -25,9 +25,9 @@ module.exports = {
       'SwitchCase': 1,
       'ignoredNodes': ['TemplateLiteral']
     }],
-    'quotes': ['warn', 'single', {
-      'allowTemplateLiterals': true
-    }],
+    // 'quotes': ['warn', 'single', {
+    //   'allowTemplateLiterals': false
+    // }],
     'no-multiple-empty-lines': ['warn', {
       'max': 1
     }],
