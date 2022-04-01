@@ -4,7 +4,7 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
-const LIBRARY_NAME = 'Library'; // Change with your library's name
+const LIBRARY_NAME = 'Formaggino'; // Change with your library's name
 const EXTERNAL = []; // Indicate which modules should be treated as external
 const GLOBALS = {}; // https://rollupjs.org/guide/en/#outputglobals
 

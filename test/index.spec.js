@@ -14,7 +14,7 @@ describe('Library.src.js', () => {
     const spy = jest.spyOn(library, 'name');
     const name = library.name();
 
-    expect(name).toEqual('Library');
+    expect(name).toEqual('Formaggino');
 
     expect(spy).toHaveBeenCalled();
 
