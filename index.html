@@ -24,10 +24,10 @@
             <input type="text" name="name" required>
             <span class="form-error">errore del nome </span>
         </fieldset>
-        <fieldset>
-            <input type="text" name="surname" required>
-            <span class="form-error">errore del cognome </span>
-        </fieldset>
+
+        <input type="text" name="surname" required>
+        <span class="form-error">errore del cognome </span>
+
 
         <button type="submit">submit</button>
     </form>
@@ -51,7 +51,7 @@
 
         document.querySelector('#form').addEventListener("submit", (e) => {
             e.preventDefault();
-            const result = formaggino.validate(e.target)
+            const result = formaggino.validate(e)
             console.log(result)
         })
 

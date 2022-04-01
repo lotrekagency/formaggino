@@ -53,7 +53,7 @@ class Formaggino {
     const validFields = formEl.querySelectorAll(".active");
     validFields.forEach((el) => el.classList.remove("active"));
     if (formEl.checkValidity()) {
-      return "👌";
+      return true;
     } else {
       list.forEach((el) => {
         const element = el.querySelector(classError)
@@ -63,7 +63,7 @@ class Formaggino {
           element.classList.add("active");
       });
 
-      return "👎";
+      return false;
     }
   }
 }
