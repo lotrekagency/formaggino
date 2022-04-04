@@ -6,10 +6,6 @@ class Formaggino {
     this.version = LIB_VERSION;
   }
 
-  name() {
-    return this._name;
-  }
-
   setupRequest({ method, body, headers }) {
     headers = { ...headers };
     if (!(body instanceof FormData)) {
@@ -45,25 +41,59 @@ class Formaggino {
     return fetch(url, options);
   }
 
-  validate(form, errorClass) {
+  checkError(response) {
+    if (response.status >= 200 && response.status <= 299) {
+      return response.json();
+    } else {
+      throw Error(response.statusText);
+    }
+  }
+
+  validate(form, { errorClass, loadingClass, mode } = {}) {
     form.preventDefault();
     const formEl = form.target;
+    const url = formEl.action;
+    const type = formEl.method;
+    let data = new FormData(formEl);
+
+    // fields errors
     const classError = errorClass ? errorClass : "form-error";
     const list = formEl.querySelectorAll(":invalid");
     const validFields = formEl.querySelectorAll(".active");
+
+    // loading element
+    const loading = loadingClass ? loadingClass : "form-loading";
+    const loadingEl = document.querySelector(`.${loading}`);
+    const dataFormat = mode ? mode : "form-data";
+    console.log(classError);
+    if (dataFormat === "json") {
+      data = Object.fromEntries(data.entries());
+    }
+    // reset for validation
     validFields.forEach((el) => el.classList.remove("active"));
+
     if (formEl.checkValidity()) {
-      return true;
+      loadingEl.classList.add("active");
+      if (type === "post") {
+        this.post(url, data)
+          .then(this.checkError)
+          .then((response) => {
+            formEl.reset();
+          })
+          .catch((error) => console.log(error, 'catch'))
+          .finally(() => {
+            loadingEl.classList.remove("active");
+          });
+      }
     } else {
       list.forEach((el) => {
-        const element = el.querySelector(classError)
-          ? el
-          : el.nextElementSibling;
-        if (element.classList.contains(classError))
-          element.classList.add("active");
+        while (el) {
+          if (el.classList.contains(classError)) {
+            el.classList.add("active");
+          }
+          el = el.nextElementSibling;
+        }
       });
-
-      return false;
     }
   }
 }
