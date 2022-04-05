@@ -51,11 +51,9 @@
                     <input class="form-control" type="email" id="email" name="email" placeholder="Mail" required>
                     <div class="invalid-feedback">Inserisci la tua mail</div>
                 </fieldset>
-                <fieldset class="mb-3">
-                    <label for="subject">Oggetto</label>
-                    <input class="form-control" type="text" id="subject" name="subject" placeholder="Oggetto" required>
-                    <div class="invalid-feedback">Inserisci l'oggetto</div>
-                </fieldset>
+                <label for="subject">Oggetto</label>
+                <input class="form-control" type="text" id="subject" name="subject" placeholder="Oggetto" required>
+                <div class="invalid-feedback">Inserisci l'oggetto</div>
                 <fieldset class="mb-3">
                     <label for="message">Il tuo messaggio</label>
                     <textarea class="form-control" name="message" rows="5" maxlength="1000" required></textarea>
@@ -97,9 +95,9 @@
         import Formaggino from "./dist/Formaggino.esm.js"
 
         const formaggino = new Formaggino();
-        const setup = formaggino.setupRequest({
-            method: "GET"
-        })
+        // const setup = formaggino.setupRequest({
+        //     method: "GET"
+        // })
 
 
         // formaggino.get('https://api.jsonbin.it/bins/UB4J7Rln',{name: 'formaggino'}).then(
@@ -110,14 +108,14 @@
         //     response => response.json()
         // ).then(data => console.log(data))
 
-
-        document.querySelector('#form').addEventListener("submit", (e) => {
-
-            formaggino.submit(e, {
-                errorClass: 'invalid-feedback',
-                mode: 'json'
-            })
+        formaggino.submitEvent('#form',{
+            errorClass: 'invalid-feedback',
+            mode: 'json'
         })
+        // document.querySelector('#form').addEventListener("submit", (e) => {
+
+        //     formaggino.submit(e,)
+        // })
 
 
 
