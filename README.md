@@ -1,40 +1,13 @@
-![build](https://github.com/georapbox/rollup-library-starter-kit/workflows/build/badge.svg)
+![build](https://github.com/lotrekagency/formaggino/workflows/build/badge.svg)
 
-# rollup-library-starter-kit
+# 🧀 Formaggino
 
-Rollup starter kit for creating libraries (Input: ES6, Output: UMD, CommonJS, ESM)
+A small vanilla js library for validate your forms without external dependencies
 
-## Features
-
-- Rollup 2.x.x
-- Babel 7
-- ES6 as a source
-- Exports in UMD, CommonJS, ESM formats
-- ES6 test setup with [Jest](https://jestjs.io/)
-- Linting with [ESLint](https://eslint.org/)
-- Basic [Travis](https://travis-ci.org/) configuration
 
 ## Getting started
 
-### 1. Setup the library's name
 
-- Open `rollup.config.js` and change the value of `LIBRARY_NAME` variable with your library's name.
-- Open `package.json` and change the following properties with your library's equivalent
-  - `name`
-  - `version`
-  - `description`
-  - `main`
-  - `module`
-  - `browser`
-  - `repository`
-  - `author`
-  - `license`
-  - `bugs`
-  - `homepage`
-
-### 2. Install dependencies
-
-- Run `npm install` to install the library's dependencies.
 
 ### 3. Build for development
 

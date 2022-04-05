@@ -9,6 +9,13 @@ class Formaggino {
     this.validation = new Validation();
   }
 
+  checkError(response) {
+    if (response.status >= 200 && response.status <= 299) {
+      return response.json();
+    } else {
+      throw Error(response.statusText);
+    }
+  }
   // main method for form submission
   submit(
     form,
@@ -45,10 +52,10 @@ class Formaggino {
           .post(url, data)
           .then(this.checkError)
           .then(() => {
-            this.triggerReport(reportSuccess, closeAfter);
+            this.validation.triggerReport(reportSuccess, closeAfter);
             formEl.reset();
           })
-          .catch(() => this.triggerReport(reportError, closeAfter))
+          .catch(() => this.validation.triggerReport(reportError, closeAfter))
           .finally(() => {
             loadingEl.classList.remove("active");
           });
