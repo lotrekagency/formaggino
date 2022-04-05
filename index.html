@@ -11,14 +11,8 @@
 <body>
     <style>
         .form-error,
-        .invalid-feedback {
-            display: none;
-        }
-
-        .form-loading {
-            display: none;
-        }
-
+        .invalid-feedback,
+        .form-loading,
         .form-report-error,
         .form-report-success {
             display: none;
@@ -33,14 +27,14 @@
             <fieldset class="mb-3">
                 <label for="name">Nome*</label>
                 <input class="form-control" type="text" id="name" name="name" placeholder="Nome" required>
-                <div class="invalid-feedback">Inserisci il tuo nome</div>
+                <div class="form-error">Inserisci il tuo nome</div>
             </fieldset>
         </div>
         <div class="col-md-6">
             <fieldset class="mb-3">
                 <label for="surname">Cognome*</label>
                 <input class="form-control" type="text" id="surname" name="surname" placeholder="Cognome" required>
-                <div class="invalid-feedback">Inserisci il tuo cognome</div>
+                <div class="form-error">Inserisci il tuo cognome</div>
             </fieldset>
         </div>
         </div>
@@ -49,11 +43,11 @@
                 <fieldset class="mb-3">
                     <label for="email">Mail*</label>
                     <input class="form-control" type="email" id="email" name="email" placeholder="Mail" required>
-                    <div class="invalid-feedback">Inserisci la tua mail</div>
+                    <div class="form-error">Inserisci la tua mail</div>
                 </fieldset>
                 <label for="subject">Oggetto</label>
                 <input class="form-control" type="text" id="subject" name="subject" placeholder="Oggetto" required>
-                <div class="invalid-feedback">Inserisci l'oggetto</div>
+                <div class="form-error">Inserisci l'oggetto</div>
                 <fieldset class="mb-3">
                     <label for="message">Il tuo messaggio</label>
                     <textarea class="form-control" name="message" rows="5" maxlength="1000" required></textarea>
@@ -61,14 +55,14 @@
                         <span style="font-size: 11px;">[[charsLength]]/1000</span>
                     </div>
 
-                    <div class="invalid-feedback">Inserisci il tuo messaggio</div>
+                    <div class="form-error">Inserisci il tuo messaggio</div>
                 </fieldset>
                 <fieldset class="mb-3 d-flex">
                     <input type="checkbox" class="me-3 form-check-input" name="privacy" id="privacy" required />
                     <label for="privacy">
                         Accetto le condizioni di <a href="{% url 'privacy' %}" target="_blank">Privacy</a>*
                     </label>
-                    <div class="invalid-feedback">Devi accettare la privacy</div>
+                    <div class="form-error">Devi accettare la privacy</div>
             </div>
             </fieldset>
 
@@ -108,10 +102,7 @@
         //     response => response.json()
         // ).then(data => console.log(data))
 
-        formaggino.submitEvent('#form',{
-            errorClass: 'invalid-feedback',
-            mode: 'json'
-        })
+        formaggino.submitEvent('#form')
         // document.querySelector('#form').addEventListener("submit", (e) => {
 
         //     formaggino.submit(e,)

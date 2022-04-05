@@ -1,4 +1,4 @@
-![build](https://github.com/lotrekagency/formaggino/workflows/build/badge.svg)
+[![GitHub](https://img.shields.io/badge/license-MIT-green?style=flat-square)](./LICENSE)
 
 # 🧀 Formaggino
 
@@ -7,8 +7,40 @@ A small vanilla js library for validate your forms without external dependencies
 
 ## Getting started
 
+Install the package 
+`npm install formaggino`
 
+Initialize the library
+```js
+import Formaggino from 'formaggino' 
+const formaggino = new Formaggino();
+```
 
+Create a form remember to include `method` `action` and `novalidate` on your form
+```html
+<form  method="POST" id="form" action="https://your-action.io/sendform" novalidate>
+    <input name="name" type="text" required/>
+    <span class="form-error">Your error text</span>
+    ...
+    <div class="form-report-error">
+      error
+    </div>
+    <div class="form-report-success">
+      success
+    </div>
+    <span class="form-loading">
+      loading...
+    </span>
+    <button type="submit">submit</button>
+</form>
+```
+call the `submitEvent` method
+
+```js
+ formaggino.submitEvent('#form')
+```
+
+## Contributing
 ### 3. Build for development
 
 - Having all the dependencies installed run `npm run dev`. This command will generate `UMD` (unminified), `CommonJS` and `ESM` modules under the `dist` folder. It will also watch for changes in source files to recompile.
@@ -28,12 +60,7 @@ A small vanilla js library for validate your forms without external dependencies
 - `npm run prepare` - Run both BEFORE the package is packed and published, on local npm install without any arguments, and when installing git dependencies.
 - `npm run clean` - Deletes `dist` and `coverage` folders.
 
-## Misc
-
-- By default all source code is located under the `src` folder.
-- Be default `dist` folder is excluded from source control but included for npm. You can change this behavior by not excluding this folder inside the `.gitignore` file.
-- The starter kit assumes that all tests are located under `test` folder with `.spec.js` extension.
 
 ## License
 
-[The MIT License (MIT)](https://georapbox.mit-license.org/@2019)
+[The MIT License (MIT)](https://github.com/lotrekagency/formaggino/blob/3415e9878e9c90ddc39daad87d71820fca65d925/LICENSE)
