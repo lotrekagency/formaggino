@@ -10,23 +10,25 @@
 
 <body>
     <style>
-        .form-error, .invalid-feedback {
+        .form-error,
+        .invalid-feedback {
             display: none;
-        }
-
-        .form-error.active, .invalid-feedback.active {
-            display: block;
         }
 
         .form-loading {
             display: none;
         }
 
-        .form-loading.active {
+        .form-report-error,
+        .form-report-success {
+            display: none;
+        }
+
+        .active {
             display: block;
         }
     </style>
-    <form method="POST" action="http://localhost/api/send-contact-mail/" id="form" novalidate>
+    <form method="POST" action="http://httpbin.org/post" id="form" novalidate>
         <div class="col-md-6">
             <fieldset class="mb-3">
                 <label for="name">Nome*</label>
@@ -56,8 +58,7 @@
                 </fieldset>
                 <fieldset class="mb-3">
                     <label for="message">Il tuo messaggio</label>
-                    <textarea class="form-control" name="message" rows="5" maxlength="1000"
-                        required></textarea>
+                    <textarea class="form-control" name="message" rows="5" maxlength="1000" required></textarea>
                     <div class="d-flex justify-content-end">
                         <span style="font-size: 11px;">[[charsLength]]/1000</span>
                     </div>
@@ -81,7 +82,12 @@
                     tramite posta elettronica
                 </label>
             </fieldset>
-
+            <div class="form-report-error">
+                error
+            </div>
+            <div class="form-report-success">
+                success
+            </div>
             <span class="form-loading">
                 loading...
             </span>
@@ -107,8 +113,8 @@
 
         document.querySelector('#form').addEventListener("submit", (e) => {
 
-            formaggino.validate(e, {
-                errorClass: 'invalid-feedback', 
+            formaggino.submit(e, {
+                errorClass: 'invalid-feedback',
                 mode: 'json'
             })
         })
