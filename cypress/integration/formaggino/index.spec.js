@@ -10,24 +10,30 @@ context("Formaggino", () => {
     cy.get(".form-error").should("have.class", "active");
 
     cy.get("input[name=name]").type("name");
+    cy.get("input[name=name]").blur();
     cy.get("input[name=name]").next().should("not.have.class", "active");
 
     cy.get("input[name=surname]").type("surname");
+    cy.get("input[name=surname]").blur();
     cy.get("input[name=surname]").next().should("not.have.class", "active");
 
     cy.get("input[name=email]").type("email");
-    cy.wait(500);
+    cy.get("input[name=email]").blur();
     cy.get(".submit-action").click();
+
     cy.get("input[name=email]").next().should("have.class", "active");
 
     cy.get("input[name=email]").type("email@mail.it");
+    cy.get("input[name=email]").blur();
     cy.wait(500);
     cy.get("input[name=email]").next().should("not.have.class", "active");
 
     cy.get("input[name=subject]").type("subject");
+    cy.get("input[name=subject]").blur();
     cy.get("input[name=subject]").next().should("not.have.class", "active");
 
     cy.get("textarea[name=message]").type("message");
+    cy.get("textarea[name=message]").blur();
     cy.get("textarea[name=message]").next().should("not.have.class", "active");
 
     cy.get("input[name=privacy]").click();

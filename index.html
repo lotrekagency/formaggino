@@ -6,21 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../example/dist/style.min.css">
 </head>
 
 <body>
     <style>
-        .form-error,
-        .invalid-feedback,
-        .form-loading,
-        .form-report-error,
-        .form-report-success {
-            display: none;
-        }
-
-        .active {
-            display: block;
-        }
+        
     </style>
     <form method="POST" action="http://httpbin.org/post" id="form" novalidate>
         <div class="col-md-6">
@@ -85,33 +76,8 @@
             </span>
             <button class="submit-action" type="submit">submit</button>
     </form>
-    <script type="module">
-        import Formaggino from "./dist/Formaggino.esm.js"
 
-        const formaggino = new Formaggino();
-        // const setup = formaggino.setupRequest({
-        //     method: "GET"
-        // })
-
-
-        // formaggino.get('https://api.jsonbin.it/bins/UB4J7Rln',{name: 'formaggino'}).then(
-        //     response => response.json()
-        // ).then(data => console.log(data))
-
-        // formaggino.post('http://httpbin.org/post', { name: 'formaggino' }).then(
-        //     response => response.json()
-        // ).then(data => console.log(data))
-
-        formaggino.submitEvent('#form', {mode:'json'})
-        // document.querySelector('#form').addEventListener("submit", (e) => {
-
-        //     formaggino.submit(e,)
-        // })
-
-
-
-
-    </script>
+    <script src="./example/dist/scripts.js"></script>
 </body>
 
 </html>

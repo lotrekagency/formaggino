@@ -13,6 +13,8 @@
     "serve": "http-server .",
     "build": "rollup -c --environment BUILD:production",
     "dev": "rollup -c -w",
+    "example:build": "rollup -c rollup_example.config.js --environment BUILD:production",
+    "example:dev": "concurrently 'rollup -c rollup_example.config.js -w' 'yarn serve'",
     "lint": "eslint src/**/*.js",
     "test": "cypress open",
     "prepare": "npm-run-all lint test build"
@@ -40,8 +42,10 @@
     "cypress": "^9.5.3",
     "eslint": "~7.18.0",
     "http-server": "^14.1.0",
+    "node-sass": "^7.0.1",
     "npm-run-all": "~4.1.5",
     "rollup": "~2.38.0",
+    "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-terser": "~7.0.2"
   },
   "dependencies": {},

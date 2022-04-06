@@ -1,0 +1,19 @@
+body {
+  background-color: grey;
+}
+
+h1 {
+  font-size: 12px;
+}
+
+.form-error,
+.invalid-feedback,
+.form-loading,
+.form-report-error,
+.form-report-success {
+  display: none;
+}
+
+.active {
+  display: block;
+}
