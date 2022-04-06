@@ -1,7 +1,7 @@
 {
   "name": "formaggino",
   "version": "1.0.0",
-  "description": "Rollup starter kit for creating libraries",
+  "description": "A small vanilla js library for validate your forms",
   "main": "dist/Formaggino.cjs.min.js",
   "module": "dist/Formaggino.esm.min.js",
   "unpkg": "dist/Formaggino.umd.min.js",
