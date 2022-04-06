@@ -1,10 +1,7 @@
-import { LIB_NAME, LIB_VERSION } from "./constants";
 import Requests from "./requests";
 import Validation from "./validation";
 class Formaggino {
   constructor() {
-    this._name = LIB_NAME;
-    this.version = LIB_VERSION;
     this.request = new Requests();
     this.validation = new Validation();
   }
@@ -26,6 +23,7 @@ class Formaggino {
       formSuccess,
       formError,
       closingTiming,
+      listener
     } = {}
   ) {
     const formEl = form.target;
@@ -39,7 +37,7 @@ class Formaggino {
     const loadingEl = document.querySelector(`.${loading}`);
     let data = new FormData(formEl);
 
-    let isValid = this.validation.validate(form, { errorClass });
+    let isValid = this.validation.validate(form, { errorClass, listener });
 
     if (dataFormat === "json") {
       data = Object.fromEntries(data.entries());
@@ -66,7 +64,6 @@ class Formaggino {
   // eventListener for triggering form
   submitEvent(el, options) {
     options = { ...options };
-    console.log(el, options);
     document.querySelector(el).addEventListener("submit", (e) => {
       this.submit(e, options);
     });

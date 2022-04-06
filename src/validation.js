@@ -23,11 +23,11 @@ class Validation {
     }, timing);
   }
 
-  validate(form, { errorClass } = {}) {
+  validate(form, { errorClass, listener } = {}) {
     form.preventDefault();
 
     const formEl = form.target;
-
+    const evtListener = listener ? listener : "change"
     // fields errors
     const classError = errorClass ? errorClass : "form-error";
     const list = formEl.querySelectorAll(":invalid");
@@ -36,11 +36,7 @@ class Validation {
     // reset for validation
     validFields.forEach((el) => el.classList.remove("active"));
 
-    formEl.addEventListener("change", (e) => {
-      this.checkInputError(e, errorClass);
-    });
-
-    formEl.addEventListener("keyup", (e) => {
+    formEl.addEventListener(evtListener, (e) => {
       debounce(this.checkInputError(e, errorClass), 400);
     });
 
