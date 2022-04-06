@@ -42,25 +42,52 @@ call the `submitEvent` method
 formaggino.submitEvent("#form");
 ```
 
+or use the options
+
+```js
+formaggino.submitEvent("#form"{
+  mode: 'json',
+  loadingClass: 'your-loading__custom_class',
+  closingTimint: 8000
+  ...
+});
+```
+
+don't forget to set you css
+
+```css
+.form-error,
+.invalid-feedback,
+.form-loading,
+.form-report-error,
+.form-report-success {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+```
+
 # Options
 
-| Option        |  Type   |        defaul         | description                                                        |
-| :------------ | :-----: | :-------------------: | ------------------------------------------------------------------ | --- |
-| mode          | string  |      `form-data`      | the type of data to send to fetch request, you can also use `json` |
-| loadingClass  | string  |    `form-loading`     | the type of data to send to fetch request, you can also use `json` |
-| errorClass    | string  |     `form-error`      | the type of data to send to fetch request, you can also use `json` |
-| formSuccess   | string  | `form-report-success` | the type of data to send to fetch request, you can also use `json` |
-| formError     | string  |  `form-report-error`  | the type of data to send to fetch request, you can also use `json` |
-| closingTiming | integer |         `3000`          | the type of data to send to fetch request, you can also use `json` | ]   |
-| listener      | string  |      `form-data`      | the type of data to send to fetch request, you can also use `json` |
+| Option        |  Type   | Default               | Description                                                        |
+| :------------ | :-----: | :-------------------- | ------------------------------------------------------------------ |
+| mode          | string  | `form-data`           | the type of data to send to fetch request, you can also use `json` |
+| loadingClass  | string  | `form-loading`        | the css class for loading element                                  |
+| errorClass    | string  | `form-error`          | the css class for each single field of form                        |
+| formSuccess   | string  | `form-report-success` | the css class for form success element                             |
+| formError     | string  | `form-report-error`   | the css class for form error element                               |
+| closingTiming | integer | `3000`                | timeout for form report duration                                   |
+| listener      | string  | `change`              | the event listener for each single field in form                   |
 
 ## Contributing
 
-### 3. Build for development
+### Build for development
 
 - Having all the dependencies installed run `npm run dev`. This command will generate `UMD` (unminified), `CommonJS` and `ESM` modules under the `dist` folder. It will also watch for changes in source files to recompile.
 
-### 4. Build for production
+### Build for production
 
 - Having all the dependencies installed run `npm run build`. This command will generate the same modules as above and one extra minified `UMD` bundle for usage in browser.
 
@@ -69,11 +96,10 @@ formaggino.submitEvent("#form");
 - `npm run build` - Produces production version of library modules under `dist` folder.
 - `npm run dev` - Produces a development version of library and runs a watcher to watch for changes.
 - `npm run test` - Runs the tests.
-- `npm run test:watch` - Runs the tests in watch mode for development.
-- `npm run test:coverage` - Runs the tests and provides with test coverage information.
 - `npm run lint` - Lints the source code with ESlint.
 - `npm run prepare` - Run both BEFORE the package is packed and published, on local npm install without any arguments, and when installing git dependencies.
 - `npm run clean` - Deletes `dist` and `coverage` folders.
+- `npm run serve` - serve the index.html with http-server
 
 ## License
 
