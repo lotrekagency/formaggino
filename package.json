@@ -1,6 +1,6 @@
 {
   "name": "formaggino",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A small vanilla js library for validate your forms",
   "main": "dist/Formaggino.cjs.min.js",
   "module": "dist/Formaggino.esm.min.js",
