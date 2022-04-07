@@ -29,8 +29,3 @@ jobs:
     - name: build, test, lint
       run: |
         npm install
-
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
