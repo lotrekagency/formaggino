@@ -28,7 +28,7 @@ jobs:
 
     - name: build, test, lint
       run: |
-        yarn
+        npm install
 
     - name: Coveralls
       uses: coverallsapp/github-action@master

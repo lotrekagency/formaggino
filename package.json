@@ -17,7 +17,7 @@
     "example:dev": "concurrently 'rollup -c rollup_example.config.js -w' 'yarn serve'",
     "lint": "eslint src/**/*.js",
     "test": "cypress open",
-    "prepare": "npm-run-all lint test build"
+    "prepare": "npm-run-all lint build"
   },
   "repository": {
     "type": "git",
