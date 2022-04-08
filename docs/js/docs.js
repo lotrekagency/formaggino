@@ -1,11 +1,16 @@
-export function getDocs(url) {
-  console.log(url);
-}
+import pkg from "../../package.json";
+import readme from "../../README.md";
+import mustache from "mustache";
 
-export function getPackage(url) {
-  fetch(url)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => console.log([data]));
+const contents = {
+  pkg: pkg,
+  readme: readme,
+};
+
+console.log(contents);
+
+export function render() {
+  var template = document.getElementById("template").innerHTML;
+  var rendered = mustache.render(template, { content: contents });
+  document.getElementById("template").innerHTML = rendered;
 }

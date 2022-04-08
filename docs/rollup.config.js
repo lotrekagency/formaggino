@@ -52,6 +52,9 @@ const makeConfig = (env = "development") => {
         },
       ],
       plugins: [
+        // commonjs(), // so Rollup can convert external modules to an ES module
+        resolve(), // teach Rollup how to find external modules
+
         babel({
           babelHelpers: "bundled",
           exclude: ["node_modules/**"],
@@ -62,8 +65,6 @@ const makeConfig = (env = "development") => {
           outputStyle: env === "production" ? "compressed" : null,
           watch: ["./public"],
         }),
-        commonjs(), // so Rollup can convert external modules to an ES module
-        resolve(), // teach Rollup how to find external modules
         json(),
         markdown()
       ],

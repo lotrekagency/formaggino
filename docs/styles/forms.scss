@@ -1,0 +1,17 @@
+.form-error,
+.invalid-feedback,
+.form-loading,
+.form-report-error,
+.form-report-success {
+  display: none;
+}
+
+
+.form-error{
+  color: $main-color;
+  font-weight: bold;
+}
+
+.active {
+  display: block;
+}

@@ -1,19 +1,5 @@
-body {
- background-color: rgb(255, 230, 0);
-}
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css);
 
-h1 {
-  font-size: 12px;
-}
-
-.form-error,
-.invalid-feedback,
-.form-loading,
-.form-report-error,
-.form-report-success {
-  display: none;
-}
-
-.active {
-  display: block;
-}
+@import "./colors.scss";
+@import "./fonts.scss";
+@import "./forms.scss";
