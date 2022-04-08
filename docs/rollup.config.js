@@ -1,8 +1,10 @@
-// import resolve from '@rollup/plugin-node-resolve';
-// import commonjs from '@rollup/plugin-commonjs';
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import scss from "rollup-plugin-scss";
+import json from '@rollup/plugin-json';
+import markdown from '@jackfranklin/rollup-plugin-markdown'
 
 const LIBRARY_NAME = "Formaggino"; // Change with your library's name
 const EXTERNAL = []; // Indicate which modules should be treated as external
@@ -44,15 +46,12 @@ const makeConfig = (env = "development") => {
         {
           name: LIBRARY_NAME,
           file: `docs/dist/scripts.js`, // UMD
-          format: "umd",
+          format: "cjs",
           exports: "auto",
           globals: GLOBALS,
         },
       ],
       plugins: [
-        // Uncomment the following 2 lines if your library has external dependencies
-        // resolve(), // teach Rollup how to find external modules
-        // commonjs(), // so Rollup can convert external modules to an ES module
         babel({
           babelHelpers: "bundled",
           exclude: ["node_modules/**"],
@@ -63,6 +62,10 @@ const makeConfig = (env = "development") => {
           outputStyle: env === "production" ? "compressed" : null,
           watch: ["./public"],
         }),
+        commonjs(), // so Rollup can convert external modules to an ES module
+        resolve(), // teach Rollup how to find external modules
+        json(),
+        markdown()
       ],
     },
   ];

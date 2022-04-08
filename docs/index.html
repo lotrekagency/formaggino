@@ -5,78 +5,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>🧀 Formaggino</title>
     <link rel="stylesheet" href="dist/style.min.css">
 </head>
 
 <body>
-    <style>
-        
-    </style>
-    <form method="POST" action="http://httpbin.org/post" id="form" novalidate>
-        <div class="col-md-6">
-            <fieldset class="mb-3">
-                <label for="name">Nome*</label>
-                <input class="form-control" type="text" id="name" name="name" placeholder="Nome" required>
-                <div class="form-error">Inserisci il tuo nome</div>
-            </fieldset>
+    <div id="target">Loading...</div>
+    <div id="template">
+        {{content.pkg.version}}
+        {{content.pkg.repository.url}}
+        <div >
+            {{{content.readme.html}}}
         </div>
-        <div class="col-md-6">
-            <fieldset class="mb-3">
-                <label for="surname">Cognome*</label>
-                <input class="form-control" type="text" id="surname" name="surname" placeholder="Cognome" required>
-                <div class="form-error">Inserisci il tuo cognome</div>
-            </fieldset>
-        </div>
-        </div>
-        <div class="row">
-            <div class="col">
+        <form method="POST" action="http://httpbin.org/post" id="form" novalidate>
+            <div class="col-md-6">
                 <fieldset class="mb-3">
-                    <label for="email">Mail*</label>
-                    <input class="form-control" type="email" id="email" name="email" placeholder="Mail" required>
-                    <div class="form-error">Inserisci la tua mail</div>
+                    <label for="name">Nome*</label>
+                    <input class="form-control" type="text" id="name" name="name" placeholder="Nome" required>
+                    <div class="form-error">Inserisci il tuo nome</div>
                 </fieldset>
-                <label for="subject">Oggetto</label>
-                <input class="form-control" type="text" id="subject" name="subject" placeholder="Oggetto" required>
-                <div class="form-error">Inserisci l'oggetto</div>
+            </div>
+            <div class="col-md-6">
                 <fieldset class="mb-3">
-                    <label for="message">Il tuo messaggio</label>
-                    <textarea class="form-control" name="message" rows="5" maxlength="1000" required></textarea>
-                    <div class="d-flex justify-content-end">
-                        <span style="font-size: 11px;">[[charsLength]]/1000</span>
-                    </div>
+                    <label for="surname">Cognome*</label>
+                    <input class="form-control" type="text" id="surname" name="surname" placeholder="Cognome" required>
+                    <div class="form-error">Inserisci il tuo cognome</div>
+                </fieldset>
+            </div>
 
-                    <div class="form-error">Inserisci il tuo messaggio</div>
+            <div class="row">
+                <div class="col">
+                    <fieldset class="mb-3">
+                        <label for="email">Mail*</label>
+                        <input class="form-control" type="email" id="email" name="email" placeholder="Mail" required>
+                        <div class="form-error">Inserisci la tua mail</div>
+                    </fieldset>
+                    <label for="subject">Oggetto</label>
+                    <input class="form-control" type="text" id="subject" name="subject" placeholder="Oggetto" required>
+                    <div class="form-error">Inserisci l'oggetto</div>
+                    <fieldset class="mb-3">
+                        <label for="message">Il tuo messaggio</label>
+                        <textarea class="form-control" name="message" rows="5" maxlength="1000" required></textarea>
+                        <div class="d-flex justify-content-end">
+                            <span style="font-size: 11px;">[[charsLength]]/1000</span>
+                        </div>
+
+                        <div class="form-error">Inserisci il tuo messaggio</div>
+                    </fieldset>
+                    <fieldset class="mb-3 d-flex">
+                        <input type="checkbox" class="me-3 form-check-input" name="privacy" id="privacy" required />
+                        <label for="privacy">
+                            Accetto le condizioni di <a href="{% url 'privacy' %}" target="_blank">Privacy</a>*
+                        </label>
+                        <div class="form-error">Devi accettare la privacy</div>
+                </div>
                 </fieldset>
-                <fieldset class="mb-3 d-flex">
-                    <input type="checkbox" class="me-3 form-check-input" name="privacy" id="privacy" required />
-                    <label for="privacy">
-                        Accetto le condizioni di <a href="{% url 'privacy' %}" target="_blank">Privacy</a>*
+
+                <fieldset class="d-flex mb-3">
+                    <input type="checkbox" class="me-3 form-check-input" name="marketing" id="marketing" />
+                    <label for="marketing">
+                        Presto il consenso all’invio di comunicazioni commerciali ed ogni altra attività riconducibile
+                        al
+                        marketing
+                        tramite posta elettronica
                     </label>
-                    <div class="form-error">Devi accettare la privacy</div>
-            </div>
-            </fieldset>
-
-            <fieldset class="d-flex mb-3">
-                <input type="checkbox" class="me-3 form-check-input" name="marketing" id="marketing" />
-                <label for="marketing">
-                    Presto il consenso all’invio di comunicazioni commerciali ed ogni altra attività riconducibile al
-                    marketing
-                    tramite posta elettronica
-                </label>
-            </fieldset>
-            <div class="form-report-error">
-                error
-            </div>
-            <div class="form-report-success">
-                success
-            </div>
-            <span class="form-loading">
-                loading...
-            </span>
-            <button class="submit-action" type="submit">submit</button>
-    </form>
-
+                </fieldset>
+                <div class="form-report-error">
+                    error
+                </div>
+                <div class="form-report-success">
+                    success
+                </div>
+                <span class="form-loading">
+                    loading...
+                </span>
+                <button class="submit-action" type="submit">submit</button>
+        </form>
+    </div>
+    </div>
     <script src="dist/scripts.js"></script>
 </body>
 
