@@ -10,11 +10,11 @@
     "dist/"
   ],
   "scripts": {
-    "serve": "http-server .",
+    "serve": "http-server ./docs",
     "build": "rollup -c --environment BUILD:production",
     "dev": "rollup -c -w",
-    "example:build": "rollup -c rollup_example.config.js --environment BUILD:production",
-    "example:dev": "concurrently 'rollup -c rollup_example.config.js -w' 'yarn serve'",
+    "docs:build": "rollup -c docs/rollup.config.js --environment BUILD:production",
+    "docs:dev": "concurrently 'rollup -c docs/rollup.config.js -w' 'yarn serve'",
     "lint": "eslint src/**/*.js",
     "test": "cypress open",
     "prepare": "npm-run-all lint build"
@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/lotrekagency/formaggino/issues"
   },
-  "homepage": "https://github.com/lotrekagency/formaggino#readme",
+  "homepage": "https://lotrekagency.github.io/formaggino/",
   "devDependencies": {
     "@babel/core": "~7.12.10",
     "@babel/plugin-proposal-object-rest-spread": "~7.12.1",

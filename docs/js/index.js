@@ -1,6 +1,6 @@
 import "../styles/styles.scss";
 
-import Formaggino from "../../dist/Formaggino.esm.js";
+import Formaggino from "../dist/Formaggino.esm.js";
 
 const formaggino = new Formaggino();
 

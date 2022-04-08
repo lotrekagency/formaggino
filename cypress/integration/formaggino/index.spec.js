@@ -3,7 +3,7 @@
 
 context("Formaggino", () => {
   beforeEach(() => {
-    cy.visit("./index.html");
+    cy.visit("./docs/index.html");
   });
   it("check validation errors", () => {
     cy.get(".submit-action").click();

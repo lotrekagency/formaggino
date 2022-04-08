@@ -92,14 +92,15 @@ don't forget to set you css
 - Having all the dependencies installed run `npm run build`. This command will generate the same modules as above and one extra minified `UMD` bundle for usage in browser.
 
 ## Scripts
-
+- `npm run serve` - serve the project with http-server.
 - `npm run build` - Produces production version of library modules under `dist` folder.
 - `npm run dev` - Produces a development version of library and runs a watcher to watch for changes.
+- `npm run docs:build` - Produces production version of library docs under `docs` folder.
+- `npm run docs:dev` - Produces a development version of library docs under `docs` folder.
 - `npm run test` - Runs the tests.
 - `npm run lint` - Lints the source code with ESlint.
 - `npm run prepare` - Run both BEFORE the package is packed and published, on local npm install without any arguments, and when installing git dependencies.
-- `npm run clean` - Deletes `dist` and `coverage` folders.
-- `npm run serve` - serve the index.html with http-server
+
 
 ## License
 
