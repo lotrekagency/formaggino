@@ -35,7 +35,7 @@ const makeConfig = (env = "development") => {
           output: "./docs/dist/style.min.css",
           failOnError: true,
           outputStyle: env === "production" ? "compressed" : null,
-          watch: ["./public"],
+          watch: ["/**/*.css", "/**/*.scss", "/**/*.sass"]
         }),
       ],
     },
@@ -63,7 +63,7 @@ const makeConfig = (env = "development") => {
           output: "./docs/dist/style.min.css",
           failOnError: true,
           outputStyle: env === "production" ? "compressed" : null,
-          watch: ["./public"],
+          watch: ["/**/*.css", "/**/*.scss", "/**/*.sass"]
         }),
         json(),
         markdown()
